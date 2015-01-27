@@ -1,5 +1,6 @@
 ﻿namespace HoraceTalker.Core
 {
+    using System;
     using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
@@ -16,12 +17,24 @@
 
         private readonly int portNumber;
 
+        private readonly IUserService userService;
+
         public static ArrayList Connections { get; set; }
 
-        public Server(CommandService commandService, int portNumber)
+        public Server(CommandService commandService, int portNumber, IUserService userService)
         {
+            if (commandService == null)
+            {
+                throw new ArgumentNullException("commandService");
+            }
+            if (userService == null)
+            {
+                throw new ArgumentNullException("userService");
+            }
+
             this.commandService = commandService;
             this.portNumber = portNumber;
+            this.userService = userService;
         }
 
         public void Start()
@@ -34,7 +47,7 @@
             while (true)
             {
                 var conn = server.Accept();
-                var connection = new Connection(conn, this.commandService);
+                var connection = new Connection(conn, this.commandService, userService);
             }
         }
 

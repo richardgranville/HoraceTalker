@@ -15,6 +15,10 @@
         private StreamReader reader;
         private CommandService commandService;
 
+        private readonly IUserService userService;
+
+        private string userName;
+
         public StreamWriter Writer { get; private set; }
 
         public bool LoggedIn
@@ -27,9 +31,23 @@
 
         public User LoggedInUser { get; private set; }
 
-        public Connection(Socket socket, CommandService commandService)
+        public Connection(Socket socket, CommandService commandService, IUserService userService)
         {
+            if (socket == null)
+            {
+                throw new ArgumentNullException("socket");
+            }
+            if (commandService == null)
+            {
+                throw new ArgumentNullException("commandService");
+            }
+            if (userService == null)
+            {
+                throw new ArgumentNullException("userService");
+            }
+
             this.commandService = commandService;
+            this.userService = userService;
             this.socket = socket;
             reader = new StreamReader(new NetworkStream(socket, false));
             Writer = new StreamWriter(new NetworkStream(socket, true));
