@@ -50,6 +50,11 @@
   <ItemGroup>
     <Compile Include="Abstract\IUserRepository.cs" />
     <Compile Include="Concrete\EfUserRepository.cs" />
+    <Compile Include="Migrations\201501280950589_Init.cs" />
+    <Compile Include="Migrations\201501280950589_Init.Designer.cs">
+      <DependentUpon>201501280950589_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\HoraceTalkerContext.cs" />
     <Compile Include="Models\Mapping\UserMap.cs" />
     <Compile Include="Models\User.cs" />
@@ -58,6 +63,11 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201501280950589_Init.resx">
+      <DependentUpon>201501280950589_Init.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
