@@ -5,8 +5,8 @@
     using System.Net.Sockets;
     using System.Threading;
 
-    using HoraceTalker.Core.Services;
-    using HoraceTalker.Domain.Models;
+    using Services;
+    using Domain.Models;
 
     public class Connection
     {
@@ -17,7 +17,7 @@
 
         private readonly IUserService userService;
 
-        private string userName;
+        private User userToValidate;
 
         public StreamWriter Writer { get; private set; }
 
@@ -102,7 +102,52 @@
         {
             try
             {
-                commandService.ProcessLine(callingConnection, line);
+                if (LoggedIn)
+                {
+                    commandService.ProcessLine(callingConnection, line);
+                }
+                else
+                {
+                    if (userToValidate == null)
+                    {
+                        if (!userService.CheckUserName(line))
+                        {
+                            Writer.WriteLine("Invalid user name. Please try again.");
+                            Writer.Write("username: ");
+                            return;
+                        }
+
+                        var user = userService.GetUser(line);
+
+                        if (user == null)
+                        {
+                            LoggedInUser = new User {UserName = line};
+                            Welcome();
+                            return;
+                        }
+
+                        userToValidate = user;
+                        Writer.Write("password: ");
+                    }
+                    else if (userToValidate != null)
+                    {
+                        var validUser = userService.ValidateUser(userToValidate, line);
+
+                        if (!validUser)
+                        {
+                            Writer.WriteLine("Invalid password.");
+                            Writer.Write("password:");
+                            return;
+                        }
+
+                        LoggedInUser = userToValidate;
+                        Welcome();
+                    }
+                    else
+                    {
+                        Disconnect();
+                    }
+                }
             }
             catch (Exception exception)
             {
@@ -110,9 +155,15 @@
             }
         }
 
+        private void Welcome()
+        {
+            Writer.WriteLine("Hello!");
+        }
+
         private void Connect()
         {
             Writer.WriteLine("Welcome!");
+            Writer.Write("username: ");
             Server.Connections.Add(this);
         }
     }

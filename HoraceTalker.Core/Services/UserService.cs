@@ -1,7 +1,7 @@
 ﻿namespace HoraceTalker.Core.Services
 {
-    using HoraceTalker.Domain.Abstract;
-    using HoraceTalker.Domain.Models;
+    using Domain.Abstract;
+    using Domain.Models;
 
     public class UserService : IUserService
     {
@@ -19,6 +19,11 @@
             return this.userRepository.GetUser(userName);
         }
 
+        public bool ValidateUser(User user, string password)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public void RegisterUser(string userName, string password)
         {
             var newUser = new User {
@@ -27,6 +32,16 @@
             };
 
             this.userRepository.SaveUser(newUser);
+        }
+
+        public bool CheckUserName(string userName)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public bool CheckPassword(string password)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
