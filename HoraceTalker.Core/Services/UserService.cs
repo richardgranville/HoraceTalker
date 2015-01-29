@@ -1,5 +1,7 @@
 ﻿namespace HoraceTalker.Core.Services
 {
+    using System.Text.RegularExpressions;
+
     using Domain.Abstract;
     using Domain.Models;
 
@@ -21,7 +23,7 @@
 
         public bool ValidateUser(User user, string password)
         {
-            throw new System.NotImplementedException();
+            return user.Password == password;
         }
 
         public void RegisterUser(string userName, string password)
@@ -36,12 +38,18 @@
 
         public bool CheckUserName(string userName)
         {
-            throw new System.NotImplementedException();
+            var alphaRegEx = new Regex("^[a-zA-Z]*$");
+            if (!alphaRegEx.IsMatch(userName))
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public bool CheckPassword(string password)
         {
-            throw new System.NotImplementedException();
+            return true;
         }
     }
 }

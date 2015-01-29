@@ -21,6 +21,8 @@
 
         public StreamWriter Writer { get; private set; }
 
+        public Guid ConnectionId { get; private set; }
+
         public bool LoggedIn
         {
             get
@@ -46,9 +48,11 @@
                 throw new ArgumentNullException("userService");
             }
 
+            this.ConnectionId = new Guid();
             this.commandService = commandService;
             this.userService = userService;
             this.socket = socket;
+
             reader = new StreamReader(new NetworkStream(socket, false));
             Writer = new StreamWriter(new NetworkStream(socket, true));
             new Thread(ClientLoop).Start();
@@ -113,7 +117,7 @@
                         if (!userService.CheckUserName(line))
                         {
                             Writer.WriteLine("Invalid user name. Please try again.");
-                            Writer.Write("username: ");
+                            Writer.WriteLine("username: ");
                             return;
                         }
 
@@ -163,7 +167,6 @@
         private void Connect()
         {
             Writer.WriteLine("Welcome!");
-            Writer.Write("username: ");
             Server.Connections.Add(this);
         }
     }

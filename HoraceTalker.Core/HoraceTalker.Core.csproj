@@ -46,6 +46,7 @@
     <Compile Include="Commands\UnknownCommand.cs" />
     <Compile Include="Connection.cs" />
     <Compile Include="Helpers\DisplayHelper.cs" />
+    <Compile Include="Helpers\TelnetHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Server.cs" />
     <Compile Include="Services\CommandService.cs" />
