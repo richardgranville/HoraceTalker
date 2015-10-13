@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HoraceTalker.Core.Commands
 {
-    using HoraceTalker.Core.Services;
+    using Services;
 
     public class CommandBase
     {

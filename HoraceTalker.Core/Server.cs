@@ -6,7 +6,7 @@
     using System.Net;
     using System.Net.Sockets;
 
-    using HoraceTalker.Core.Services;
+    using Services;
 
     public class Server
     {

@@ -5,7 +5,7 @@
     using System.Net.Sockets;
     using System.Threading;
 
-    using HoraceTalker.Core.Services;
+    using Services;
     using HoraceTalker.Domain.Models;
 
     public class Connection
