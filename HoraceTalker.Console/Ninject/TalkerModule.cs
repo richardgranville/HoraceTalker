@@ -12,13 +12,13 @@
     {
         public override void Load()
         {
-            this.Bind<Server>().ToSelf().WithConstructorArgument("portNumber", 4000);
-            this.Bind<ICommunicationService>().To<CommunicationService>();
-            this.Bind<IUserRepository>().To<EfUserRepository>().InThreadScope();
-            this.Bind<IUserService>().To<UserService>().InSingletonScope();
-            this.Bind<CommandService>().ToSelf();
+            Bind<Server>().ToSelf().WithConstructorArgument("portNumber", 4000);
+            Bind<ICommunicationService>().To<CommunicationService>();
+            Bind<IUserRepository>().To<EfUserRepository>().InThreadScope();
+            Bind<IUserService>().To<UserService>().InSingletonScope();
+            Bind<CommandService>().ToSelf();
 
-            this.Bind<ICommand>().To<Say>();
+            Bind<ICommand>().To<Say>();
         }
     }
 }

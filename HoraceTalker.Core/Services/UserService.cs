@@ -16,7 +16,7 @@
 
         public User GetUser(string userName)
         {
-            return this.userRepository.GetUser(userName);
+            return userRepository.GetUser(userName);
         }
 
         public void RegisterUser(string userName, string password)
@@ -26,7 +26,7 @@
                 Password = password
             };
 
-            this.userRepository.SaveUser(newUser);
+            userRepository.SaveUser(newUser);
         }
     }
 }

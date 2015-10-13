@@ -21,7 +21,7 @@ namespace HoraceTalker.Core.Commands
 
         public void Process(Connection callingConnection, string argumentsString)
         {
-            this.commsService.UserMessage("Unkown command", callingConnection);
+            commsService.UserMessage("Unkown command", callingConnection);
         }
     }
 }

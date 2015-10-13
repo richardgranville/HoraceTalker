@@ -21,7 +21,7 @@
         {
             get
             {
-                return this.LoggedInUser != null;
+                return LoggedInUser != null;
             }
         }
 
@@ -47,7 +47,7 @@
             {
                 lock (bigLock)
                 {
-                    this.Connect();
+                    Connect();
                 }
                 while (true)
                 {
@@ -66,7 +66,7 @@
                     }
                     lock (bigLock)
                     {
-                        this.ProcessLine(line, this);
+                        ProcessLine(line, this);
                     }
                 }
             }
@@ -75,7 +75,7 @@
                 lock (bigLock)
                 {
                     socket.Close();
-                    this.Disconnect();
+                    Disconnect();
                 }
             }
         }

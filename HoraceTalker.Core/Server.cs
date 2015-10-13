@@ -28,13 +28,13 @@
         {
             Connections = new ArrayList();
             var server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            server.Bind(new IPEndPoint(IPAddress.Any, this.portNumber));
+            server.Bind(new IPEndPoint(IPAddress.Any, portNumber));
             server.Listen(BacklogSize);
 
             while (true)
             {
                 var conn = server.Accept();
-                var connection = new Connection(conn, this.commandService);
+                var connection = new Connection(conn, commandService);
             }
         }
 

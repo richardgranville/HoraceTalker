@@ -26,7 +26,7 @@ namespace HoraceTalker.Core.Commands
 
         public void Process(Connection callingConnection, string argumentsString)
         {
-            this.commsService.Broadcast(string.Format("{0} says '{1}'", "horace", argumentsString));
+            commsService.Broadcast(string.Format("{0} says '{1}'", "horace", argumentsString));
         }
     }
 }

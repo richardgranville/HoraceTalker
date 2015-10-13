@@ -25,14 +25,14 @@
 
             if (string.IsNullOrEmpty(commandName)) 
             {
-                this.commsService.UserMessage(string.Format("A match for '{0}' could not be found.", commandName), callingConnection);
+                commsService.UserMessage(string.Format("A match for '{0}' could not be found.", commandName), callingConnection);
             }
 
-            var command = this.GetCommand(commandName);
+            var command = GetCommand(commandName);
 
             if (command == null)
             {
-                this.commsService.UserMessage(string.Format("A match for '{0}' could not be found.", commandName), callingConnection);
+                commsService.UserMessage(string.Format("A match for '{0}' could not be found.", commandName), callingConnection);
                 return;
             }
 
@@ -41,7 +41,7 @@
 
         private ICommand GetCommand(string commandName)
         {
-            return this.commands.FirstOrDefault(c => c.Name == commandName);
+            return commands.FirstOrDefault(c => c.Name == commandName);
         }
 
         private static string GetCommandName(string line, out string arguments)
