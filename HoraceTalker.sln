@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoraceTalker.Console", "HoraceTalker.Console\HoraceTalker.Console.csproj", "{767A07AF-BD1A-4FF8-A6C1-9FCEA46F726E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoraceTalker.Core", "HoraceTalker.Core\HoraceTalker.Core.csproj", "{CF87DB04-5B21-4B43-A585-A4EA9B30C338}"
-EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "HoraceTalker.Database", "HoraceTalker.Database\HoraceTalker.Database.sqlproj", "{BC271CF4-2DD1-43E8-BDBD-DA6149BC6E0A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoraceTalker.Domain", "HoraceTalker.Domain\HoraceTalker.Domain.csproj", "{376AE5F3-C031-4ECD-8403-279FEDD2C60D}"
 EndProject
@@ -23,12 +23,6 @@ Global
 		{CF87DB04-5B21-4B43-A585-A4EA9B30C338}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF87DB04-5B21-4B43-A585-A4EA9B30C338}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF87DB04-5B21-4B43-A585-A4EA9B30C338}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BC271CF4-2DD1-43E8-BDBD-DA6149BC6E0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BC271CF4-2DD1-43E8-BDBD-DA6149BC6E0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BC271CF4-2DD1-43E8-BDBD-DA6149BC6E0A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{BC271CF4-2DD1-43E8-BDBD-DA6149BC6E0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BC271CF4-2DD1-43E8-BDBD-DA6149BC6E0A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BC271CF4-2DD1-43E8-BDBD-DA6149BC6E0A}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{376AE5F3-C031-4ECD-8403-279FEDD2C60D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{376AE5F3-C031-4ECD-8403-279FEDD2C60D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{376AE5F3-C031-4ECD-8403-279FEDD2C60D}.Release|Any CPU.ActiveCfg = Release|Any CPU

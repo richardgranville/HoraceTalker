@@ -1,11 +1,6 @@
 ﻿using HoraceTalker.Domain.Abstract;
-using HoraceTalker.Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
+using Microsoft.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HoraceTalker.Domain.Concrete
 {

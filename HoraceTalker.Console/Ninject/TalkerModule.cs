@@ -15,7 +15,7 @@
             this.Bind<Server>().ToSelf().WithConstructorArgument("portNumber", 4000);
             this.Bind<ICommunicationService>().To<CommunicationService>();
             this.Bind<IUserRepository>().To<EfUserRepository>().InThreadScope();
-            ////this.Bind<IUserService>().To<UserService>().InSingletonScope();
+            this.Bind<IUserService>().To<UserService>().InSingletonScope();
             this.Bind<CommandService>().ToSelf();
 
             this.Bind<ICommand>().To<Say>();
